@@ -9,7 +9,7 @@ Check out [this article](https://medium.com/eulerfinance/uniswap-oracle-attack-s
 Create `.env` file in the root folder with your provider URL
 
 ```bash
-REACT_APP_ETHEREUM_NETWORK_HTTP=
+REACT_APP_ARBITRUM_NETWORK_HTTP=
 ```
 
 ## Run dev server

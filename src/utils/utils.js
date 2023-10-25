@@ -16,7 +16,7 @@ import {
 import eulerViewArtifacts from "../artifacts/EulerGeneralView.json";
 
 export const provider = new providers.JsonRpcProvider(
-  process.env.REACT_APP_ETHEREUM_NETWORK_HTTP
+  process.env.REACT_APP_ARBITRUM_NETWORK_HTTP
 );
 
 const factoryContract = new Contract(
@@ -33,19 +33,17 @@ const eulerViewContract = new Contract(
 Decimal.set({ precision: 50 });
 
 export const sqrtPriceX96ToPrice = (a, invert) => {
-  const scale = new Decimal(2)
-    .pow(96 * 2)
-    .div(new Decimal(10).pow(18))
-  a = new Decimal(a.toString())
-  a = a.mul(a).div(scale)
-  
+  const scale = new Decimal(2).pow(96 * 2).div(new Decimal(10).pow(18));
+  a = new Decimal(a.toString());
+  a = a.mul(a).div(scale);
+
   if (invert && a.eq(0))
-    return BigNumber.from(MAX_TICK_PRICE.toFixed(0)).mul(c1e18)
+    return BigNumber.from(MAX_TICK_PRICE.toFixed(0)).mul(c1e18);
 
-  if (invert) a = new Decimal(10).pow(18).mul(new Decimal(10).pow(18)).div(a)
+  if (invert) a = new Decimal(10).pow(18).mul(new Decimal(10).pow(18)).div(a);
 
-  return BigNumber.from(a.toFixed(0))
-}
+  return BigNumber.from(a.toFixed(0));
+};
 
 // a is decimal
 export const priceToSqrtX96Price = (a) => {

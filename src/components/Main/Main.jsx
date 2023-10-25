@@ -50,7 +50,6 @@ import {
   computeUniV3PoolAddress,
   sqrtPriceX96ToPrice,
   isInverted,
-  getMarketConfig,
   getTwapTargetRatio,
   getTwapAfterAttack,
   getMinMaxTargetTwapSpot,
@@ -61,6 +60,7 @@ import {
   MIN_TICK_PRICE,
   USDC_ADDRESS,
   WETH_ADDRESS,
+  TOKEN_LIST,
   //   getLiquidityProfile,
   //   getLiquidityStats,
   //   parseLiquidityRange,
@@ -172,16 +172,11 @@ export const Main = () => {
   useEffect(() => {
     Promise.all([
       axios.get(
-        "https://raw.githubusercontent.com/euler-xyz/euler-tokenlist/master/euler-tokenlist.json"
-      ),
-      axios.get(
         `https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD`
       ),
-      // getMarketConfig(USDC_ADDRESS),
-    ]).then(([result1, result2, result3]) => {
-      setTokenList(sortBy(result1.data.tokens, "symbol"));
+    ]).then(([result2, result3]) => {
+      setTokenList(sortBy(TOKEN_LIST, "symbol"));
       setEthPrice(Number(result2.data.USD));
-      // setUsdcMarketConfig(result3);
       setUsdcMarketConfig({ borrowFactor: 0.95 });
     });
   }, []);
