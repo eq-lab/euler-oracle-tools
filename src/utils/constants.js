@@ -72,14 +72,15 @@ export const TOKEN_LIST = [
   },
   {
     chainId: 1,
-    id: "arb",
     address: "0x912ce59144191c1204e64559fe8253a0e49e6548",
+    name: "ARB",
     symbol: "ARB",
     decimals: 18,
   },
   {
     chainId: 1,
     address: "0x3082cc23568ea640225c2467653db90e9250aaa0",
+    name: "RDNT",
     symbol: "RDNT",
     decimals: 18,
   },

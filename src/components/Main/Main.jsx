@@ -1116,14 +1116,14 @@ export const Main = () => {
                   <Box display="flex">
                     <Link
                       target="_blank"
-                      href={`https://etherscan.io/token/${token.address}`}
+                      href={`https://arbiscan.io/token/${token.address}`}
                     >
                       Token
                     </Link>
                     <Link
                       ml={1}
                       target="_blank"
-                      href={`https://info.uniswap.org/#/pools/${computeUniV3PoolAddress(
+                      href={`https://info.uniswap.org/#/arbitrum/pools/${computeUniV3PoolAddress(
                         token.address,
                         WETH_ADDRESS,
                         fee
